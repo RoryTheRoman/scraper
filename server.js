@@ -18,6 +18,8 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/userdb");
 
 //import files from other folders
 // var routes = require("./controllers");
