@@ -19,7 +19,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/userdb");
+mongoose.connect("mongodb://localhost/scraperdb");
 
 //import files from other folders
 // var routes = require("./controllers");
