@@ -29,15 +29,15 @@ app.use(axios);
 mongoose.connect("mongodb://localhost/scraperdb");
 
 app.get("/scrape", function (req, res) {
-    axios.get("https://www.theonion.com/").then(function (response) {
+    axios.get("buffy-boards.com/").then(function (response) {
         var $ = cheerio.load(response.data);
-        $("h6").each(function (i, element) {
+        $("h3.node-title").each(function (i, element) {
             var result = {};
 
-            result.title = $(element).find("a").text().trim();
-            console.log(result.title);
-            result.link = $(element).find("a").attr("href").trim();
-            console.log(result.link);
+            result.title = $(element).children("a").text().trim();
+
+            result.link = $(element).children("a").attr("href").trim();
+
             db.Article.create(result)
                 .then(function (dbArticle) {
                     // View the added result in the console
