@@ -5,7 +5,8 @@ var express         = require("express"),
     exphbs          = require("express-handlebars"),
     mongoose        = require("mongoose"),
     cheerio         = require("cheerio"),
-    request         = require("request");
+    request         = require("request"),
+    routes          = require("./routes/html_routes");
 
 //declare PORT variable in a heroku-friendly way
 var PORT = process.env.PORT || 3000;
@@ -23,14 +24,9 @@ mongoose.connect("mongodb://localhost/scraperdb");
 
 //import files from other folders
 // var routes = require("./controllers");
-// app.use(routes);
+app.use(routes);
 // var models = require("./models");
 //^^^^^^ COMMENTED OUT B/C CAUSED ERROR - LIKELY B/C THERE IS NOTHING IN THEM YET?
-
-//render homepage
-app.get("/", function (req, res){
-    res.render("index");
-})
 
 //invoke server
 app.listen(PORT, function () {
