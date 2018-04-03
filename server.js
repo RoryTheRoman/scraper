@@ -22,40 +22,10 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(routes);
-// require("./controllers/scraper_controller.js")(app);
+require("./controllers/scraper_controller.js")(app);
 
 // Connect to the Mongo DB
 //mongoose.connect("mongodb://localhost/scraperdb");
-app.get('/dingleberry',function(req,res) {
-    console.log('dont forget your dingleberries')
-})
-
-
-app.get("/scrape", function (req, res) {
-    console.log("yo");
-    axios.get("https://buffy-boards.com/").then(function (response) {
-        console.log(response.data);
-        var $ = cheerio.load(response.data);
-        $("h3.node-title").each(function (i, element) {
-            var result = {};
-
-            result.title = $(element).children("a").text().trim();
-
-            result.link = $(element).children("a").attr("href").trim();
-
-            db.Article.create(result)
-                .then(function (dbArticle) {
-                    // View the added result in the console
-                    console.log(dbArticle);
-                })
-                .catch(function (err) {
-                    // If an error occurred, send it to the client
-                    return res.json(err);
-                });
-        });
-        res.send("scrape complete");
-    });
-});
 
 //invoke server
 app.listen(PORT, function () {
