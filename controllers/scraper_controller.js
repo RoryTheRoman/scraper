@@ -9,59 +9,6 @@ var cheerio         = require("cheerio"),
     
 mongoose.connect("mongodb://localhost/scraperdb");    
 
-// app.get("/scrape", function(req, res){
-//     axios.get("http://www.mtv.com/").then(function (response){
-//         var $ = cheerio.load(response.data);
-//         $(".header").each(function(i, element){
-//             var result = {};
-
-//             result.title = $(this).text();
-//             console.log(result.title);
-//             result.link = $(this).parent().parent().attr("href");
-//             console.log(result.link);
-//             db.Article.create(result)
-//                 .then(function (dbArticle) {
-//                     // View the added result in the console
-//                     console.log(dbArticle);
-//                 })
-//                 .catch(function (err) {
-//                     // If an error occurred, send it to the client
-//                     return res.json(err);
-//                 });
-//         });
-//         res.send("scrape complete");
-//     });
-// });
-// };
-
-//BUFFY BOARDS WORKING BELOW:
-
-// app.get("/scrape", function (req, res) {
-//     // console.log("yo");
-//     axios.get("https://buffy-boards.com/").then(function (response) {
-//         var $ = cheerio.load(response.data);
-//         $("h3.node-title").each(function (i, element) {
-//             var result = {};
-
-//             result.title = $(element).children("a").text().trim();
-//             console.log(result.title);
-
-//             result.link = $(element).children("a").attr("href").trim();
-//             console.log(result.link);
-
-//             db.Article.create(result)
-//                 .then(function (dbArticle) {
-//                     // View the added result in the console
-//                     console.log(dbArticle);
-//                 })
-//                 .catch(function (err) {
-//                     // If an error occurred, send it to the client
-//                     return res.json(err);
-//                 });
-//         });
-//         res.send("scrape complete");
-//     });
-// });
 module.exports = function (app) {
     app.get("/scrape", function (req, res) {
         console.log("yo");
