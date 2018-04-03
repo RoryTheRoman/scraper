@@ -22,14 +22,19 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(routes);
-app.use(axios);
 // require("./controllers/scraper_controller.js")(app);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/scraperdb");
+//mongoose.connect("mongodb://localhost/scraperdb");
+app.get('/dingleberry',function(req,res) {
+    console.log('dont forget your dingleberries')
+})
+
 
 app.get("/scrape", function (req, res) {
-    axios.get("buffy-boards.com/").then(function (response) {
+    console.log("yo");
+    axios.get("https://buffy-boards.com/").then(function (response) {
+        console.log(response.data);
         var $ = cheerio.load(response.data);
         $("h3.node-title").each(function (i, element) {
             var result = {};
