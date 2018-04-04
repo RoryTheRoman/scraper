@@ -37,21 +37,11 @@ module.exports = function (app) {
     });
 
     app.get("/articles", function (req, res) {
-        console.log("yo, yo");
-        // Grab every document in the Articles collection
         db.Article.find({})
-            .then(function (dbArticle) {
-                var hbsObject = {
-                    Article: data
-                };
-                console.log(hbsObject);
-                res.render("index", hbsObject);
-                // If we were able to successfully find Articles, send them back to the client
-                console.log("IS THIS HAPPENING????" + dbArticle.title);
-                res.json(dbArticle);
+            .then(function (articles) {
+                res.render("index", { articles });
             })
             .catch(function (err) {
-                // If an error occurred, send it to the client
                 res.json(err);
             });
     });
