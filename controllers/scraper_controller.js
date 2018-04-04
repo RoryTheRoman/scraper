@@ -36,7 +36,7 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/articles", function (req, res) {
+    app.get("/", function (req, res) {
         db.Article.find({})
             .then(function (articles) {
                 res.render("index", { articles });

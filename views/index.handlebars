@@ -17,7 +17,8 @@
 <div class="container">
     {{#each articles}}
     <div class="panel panel-success">
-        <div class="panel-heading">{{this.title}}</div>
+        <div class="panel-heading">{{this.title}}<button type="button" class="btn btn-sm btn-danger pull-right">NOTES</button></div>
+
         <div class="panel-body"><a href= "{{this.link}}">{{this.link}}</a>           
         </div>
     </div>

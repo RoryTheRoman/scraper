@@ -4,8 +4,8 @@ var express         = require("express"),
 
 
 //render homepage
-router.get("/", function (req, res) {
-    res.render("index");
-});
+// router.get("/", function (req, res) {
+//     res.render("index");
+// });
 
 module.exports = router;
