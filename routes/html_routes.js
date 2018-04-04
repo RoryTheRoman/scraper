@@ -1,4 +1,5 @@
-var express         = require("express")
+var express         = require("express"),
+    controller      = require("../controllers/scraper_controller.js");
     router          = express.Router();
 
 

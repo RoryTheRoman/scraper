@@ -15,10 +15,12 @@
 
 
 <div class="container">
+    {{#each Article}}
     <div class="panel panel-success">
-        <div class="panel-heading">{{result.title}}</div>
+        <div class="panel-heading">{{Article.title}}</div>
         <div class="panel-body">
-            Panel content
+            {{Article.link}}
         </div>
     </div>
+    {{/each}}
 </div>

@@ -11,7 +11,6 @@ mongoose.connect("mongodb://localhost/scraperdb");
 
 module.exports = function (app) {
     app.get("/scrape", function (req, res) {
-        console.log("yo");
         axios.get("https://www.theonion.com/").then(function (response) {
             var $ = cheerio.load(response.data);
             $("h1.headline").each(function (i, element) {
@@ -35,5 +34,25 @@ module.exports = function (app) {
             });
             res.send("scrape complete");
         });
+    });
+
+    app.get("/articles", function (req, res) {
+        console.log("yo, yo");
+        // Grab every document in the Articles collection
+        db.Article.find({})
+            .then(function (dbArticle) {
+                var hbsObject = {
+                    Article: data
+                };
+                console.log(hbsObject);
+                res.render("index", hbsObject);
+                // If we were able to successfully find Articles, send them back to the client
+                console.log("IS THIS HAPPENING????" + dbArticle.title);
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
     });
 };

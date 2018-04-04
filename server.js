@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(routes);
 require("./controllers/scraper_controller.js")(app);
+// require("./routes/api_routes")(app);
+// require("./routes/html_routes")(app);
 
 // Connect to the Mongo DB
 //mongoose.connect("mongodb://localhost/scraperdb");
