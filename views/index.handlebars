@@ -1,26 +1,32 @@
-<div class="container" id="header-container">
-    <div class="row">
-        <div class="col-lg-4" id="scraper-graphic">
-            <img src="/assets/images/Onion.png">
-        </div>
-        <div class="col-lg-8" id="scraper-header">
-            <header><h1>Peeling the Onion</h1></header>
-        </div>
-        <div class="row">
-            <h4>**Unauthorized Onion Scaper, for class project only</h4>
-        </div>
-    </div>
-</div>
-
-
 
 <div class="container">
-    {{#each articles}}
-    <div class="panel panel-success">
-        <div class="panel-heading">{{this.title}}<button type="button" class="btn btn-sm btn-danger pull-right">NOTES</button></div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="display-4 font-weight-normal">Peeling the Onion</h1>
+            </div>
+            <div class="col-md-4">
+                <img src="/assets/images/Onion.png">
+            </div>
+        </div>
+        <p class="lead font-italic">**Unauthorized Onion Scraper, for class project only.</p>
+    </div>
+</div>
 
-        <div class="panel-body"><a href= "{{this.link}}">{{this.link}}</a>           
+
+<div class ="container">
+    {{#each articles}}
+        <div class="card">
+            <div class="card-header">
+                <h4>{{this.title}}</h4>
+            </div>
+            <div class="card-body">
+                <a href ="{{this.link}}"><h5 class="card-title">{{this.link}}</h5></a>
+                <p class="card-text">Place Summary Here</p>
+                <a href="#" class="btn btn-success" id="noteBtn">Notes</a>
         </div>
     </div>
+    <br>
+       
     {{/each}}
-</div>
+
