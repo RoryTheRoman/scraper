@@ -21,12 +21,35 @@
                 <h4>{{this.title}}</h4>
             </div>
             <div class="card-body">
-                <a href ="{{this.link}}"><h5 class="card-title">{{this.link}}</h5></a>
-                <p class="card-text">Place Summary Here</p>
+                <a href ="{{this.link}}" target="blank"><h6 class="card-title">{{this.link}}</h6></a>
+                <p class="card-text">{{summary}}</p>
                 <a href="#" class="btn btn-success" id="noteBtn">Notes</a>
         </div>
     </div>
     <br>
        
     {{/each}}
+    </div>
 
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="noteModalLabel">Leave a Comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <textarea placeholder="Your Name" class="text-area" id="userName" rows="1"> </textarea>
+                    <textarea placeholder="Comments" class="text-area" id="userComment" rows="3"> </textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Comment</button>
+            </div>
+        </div>
+    </div>
+</div>
