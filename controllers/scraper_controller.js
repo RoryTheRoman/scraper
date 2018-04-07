@@ -52,5 +52,15 @@ module.exports = function (app) {
             });
 
     });
+//take form inputs and create note, push to both note and article collections:
+// app.post("/note/:id", function (req, res){
+//     db.Note.create(req.body)
+//     .then(function (dbNote){
+//         return Article.findOneAndUpdate({_id : req.params.id}, {$push: {note: dbNote._id}}, {new: true});
+//     })
+//     .catch(function (err) {
+//         return res.json(err);
+//     });
+// });    
     
 };
