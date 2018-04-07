@@ -10,7 +10,7 @@ var cheerio         = require("cheerio"),
 // mongoose.connect("mongodb://localhost/scraperdb");    
 
 module.exports = function (app) {
-    app.get("/scrape", function (req, res) {
+    app.get("/", function (req, res) {
         axios.get("https://www.theonion.com/").then(function (response) {
             var $ = cheerio.load(response.data);
             $("article.postlist__item").each(function (i, element) {
@@ -36,13 +36,15 @@ module.exports = function (app) {
                         return res.json(err);
                     });
             });
-            res.send("scrape complete");
+            // res.send("scrape complete");
+            res.redirect("/scrape");
 
         });
  
     });
 
-    app.get("/", function (req, res) {
+
+    app.get("/scrape", function (req, res) {
         db.Article.find({})
             .then(function (articles) {
                 res.render("index", { articles });
