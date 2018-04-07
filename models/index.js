@@ -1,6 +1,6 @@
 //exports all models
 
 module.exports = {
-    Article: require("./Article"),
-    Note: require("./Note")
+    Article: require("./article.js"),
+    Note: require("./note.js")
 };
