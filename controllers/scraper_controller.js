@@ -37,6 +37,7 @@ module.exports = function (app) {
                     });
             });
             res.send("scrape complete");
+            res.redirect("/");
         });
     });
 

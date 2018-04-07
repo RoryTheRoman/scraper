@@ -23,7 +23,7 @@
             <div class="card-body">
                 <a href ="{{this.link}}" target="blank"><h6 class="card-title">{{this.link}}</h6></a>
                 <p class="card-text">{{summary}}</p>
-                <a href="#" class="btn btn-success" id="noteBtn">Notes</a>
+                <a href="#" class="btn btn-success noteBtn" data="{{this.id}}" id="noteBtn">Notes</a>
         </div>
     </div>
     <br>
@@ -31,7 +31,7 @@
     {{/each}}
     </div>
 
-<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+<div class="modal fade noteModal" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
