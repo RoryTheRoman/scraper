@@ -7,7 +7,7 @@ var cheerio         = require("cheerio"),
     mongoose        = require("mongoose"),
     db              = require("../models");
     
-mongoose.connect("mongodb://localhost/scraperdb");    
+// mongoose.connect("mongodb://localhost/scraperdb");    
 
 module.exports = function (app) {
     app.get("/scrape", function (req, res) {
