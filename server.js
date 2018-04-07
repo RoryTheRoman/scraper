@@ -27,7 +27,13 @@ require("./controllers/scraper_controller.js")(app);
 // require("./routes/html_routes")(app);
 
 // Connect to the Mongo DB
-//mongoose.connect("mongodb://localhost/scraperdb");
+var databaseURI = "mongodb://localhost/scraperdb";
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+} else{
+    mongoose.connect(databaseURI); 
+}
+
 
 //invoke server
 app.listen(PORT, function () {
